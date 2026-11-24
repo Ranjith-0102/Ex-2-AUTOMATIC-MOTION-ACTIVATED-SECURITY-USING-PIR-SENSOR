@@ -74,7 +74,33 @@ o	Cathode (–) of LED: Connect to GND on the Arduino.
 2.	Save the Circuit: Click “Save” at the top of the screen to store your design and code for future use.
 
 ## PROGRAM
+```
+const int pirPin = 2;    // PIR sensor output
+const int ledPin = 8;    // LED pin
+
+void setup() {
+  pinMode(pirPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int motion = digitalRead(pirPin);
+
+  if (motion == HIGH) {
+    digitalWrite(ledPin, HIGH);
+    Serial.println("Motion Detected!");
+  } else {
+    digitalWrite(ledPin, LOW);
+    Serial.println("No Motion");
+  }
+
+  delay(100);
+}
+```
 ## OUTPUT 
+
+<img width="1600" height="999" alt="image" src="https://github.com/user-attachments/assets/2c2c1bf0-b6df-4095-8b38-65d5807fb767" />
 
 
 ## Result:
